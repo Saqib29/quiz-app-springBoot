@@ -12,6 +12,44 @@
 </head>
 <body>
 
+    <!--Importing navbar-->
+    <div th:insert="navbar.html :: navbar"></div>
+
+    <!--Main Container start-->
+    <div class="main-container container py-5 px-4">
+        <div class="card bg-dark text-light py-5 px-4 mx-auto">
+            <img th:src="@{/images/exam.svg}" alt="image">
+            <h3 class="bg-danger text-center mb-5 p-2">Your Score</h3>
+
+            <div class="d-flex justify-content-center">
+                <p>Participant name:&nbsp;&nbsp;</p>
+                <p th:if="${result}" th:text="${result.username}"></p>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <p>Total Correct Ans:&nbsp;&nbsp;</p>
+                <p th:if="${result}" th:text="${result.totalCorrect}"></p>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <p>Total false answer:&nbsp;&nbsp;</p>
+                <p th:if="${result}" th:text="5 - ${result.totalCorrect}"></p>
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                <button type="button" th:onClick="window.location.href='/score'"
+                        class="btn btn-outline-warning mx-auto">View Scoreboard</button>
+                <button type="button" th:onClick="window.location.href='/'"
+                        class="btn btn-outline-warning mx-auto">Back to home page</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Importing footer-->
+    <div th:insert="footer.html :: footer"></div>
+
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

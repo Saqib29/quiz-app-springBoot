@@ -8,3 +8,10 @@ body {
 	width: 100%;
 	overflow-x: hidden;
 }
+
+
+footer{
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+}
